@@ -1,24 +1,19 @@
 import * as React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import DeleteIcon from '@mui/icons-material/Delete';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Avatar from '@mui/material/Avatar';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import TodoList from './TodoList';
 import TodoDialog from './TodoDialog';
+import { CircularProgress } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,29 +57,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-
 function App() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const openCreateTodoDialog = () => {
+    console.log("openCreateTodoDialog");
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  async function getTodos() {
+    let response = await axios("https://jsonplaceholder.typicode.com/todos/");
+    return response.data;
+  }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const query = useQuery(['todos'], getTodos);
 
   return (
     <div>
-    <AppBar position="static" disableGutters>
+    <AppBar position="static">
       <Container>
       <Toolbar disableGutters>
           <DoneOutlineIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -108,7 +95,7 @@ function App() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={openCreateTodoDialog}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               {"Create Task"}
@@ -129,7 +116,7 @@ function App() {
       </Container>
     </AppBar>
     <Container>
-      <TodoList></TodoList>
+      {query.isFetched ? <TodoList todos={query.data}/> : <CircularProgress/>}
       <TodoDialog/>
     </Container>
     </div>
