@@ -9,7 +9,7 @@ import TodoAppBar from './TodoAppBar';
 
 function App() {
   async function getTodos() {
-    let response = await axios("https://jsonplaceholder.typicode.com/todos/");
+    let response = await axios("/todos/");
     return response.data;
   }
 
