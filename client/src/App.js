@@ -8,12 +8,12 @@ import { CircularProgress } from '@mui/material';
 import TodoAppBar from './TodoAppBar';
 
 function App() {
-  async function getTodos() {
-    let response = await axios("/todos/");
+  async function getTodoList() {
+    let response = await axios("/api/todo-list/");
     return response.data;
   }
 
-  const query = useQuery(['todos'], getTodos);
+  const query = useQuery(['todo-list'], getTodoList);
 
   return (
     <div>

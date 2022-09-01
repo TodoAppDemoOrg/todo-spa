@@ -29,7 +29,7 @@ export default function TodoList(props) {
           >
             <Checkbox />
             <ListItemButton role={undefined} onClick={showTodoDialog(todo)}>
-              <ListItemText id={labelId} primary={todo.title} secondary={`${todo.id} comments`}/>
+              <ListItemText id={labelId} primary={todo.title} secondary={`${todo.commentCount || 'no'} comments`}/>
             </ListItemButton>
           </ListItem>
         );
