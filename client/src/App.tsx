@@ -10,7 +10,7 @@ import {TodoListItem} from "api/TodoListItem";
 
 function App() {
   async function getTodoList(): Promise<TodoListItem[]> {
-    let response = await axios("/api/todo-list/");
+    const response = await axios("/api/todo-list/");
     return response.data;
   }
 
