@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Demo SPA using BFF pattern
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Different tech stack are kept in different branches:
+
+- [express](https://github.com/TodoAppDemoOrg/todo-spa/tree/express)
 
 ## Available Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
