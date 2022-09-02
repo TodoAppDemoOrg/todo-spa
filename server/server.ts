@@ -14,7 +14,7 @@ app.get('/api/todo-list/', async (req: Request, res: Response<TodoListItem[]>) =
   }))
 })
 
-app.use(express.static('../client/build'))
+app.use(express.static('../build'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
