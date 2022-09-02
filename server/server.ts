@@ -11,7 +11,7 @@ app.get('/api/todo-list/', async (req: Request, res: Response) => {
   const commentsPerTodo = new Map(commentStats.map(stat => [stat.topic, stat.comment_count]))
   const result: TodoListItem[] = todos.map(todo => {
     return {id: todo.id, title: todo.title, commentCount: commentsPerTodo.get(todo.id) || 0}
-  }) as TodoListItem[]
+  })
   res.send(result)
 })
 
