@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 import TodoDialog from './TodoDialog';
 import { CircularProgress } from '@mui/material';
 import TodoAppBar from './TodoAppBar';
-import {fetchTodoList} from "./App.backend";
+import {fetchTodoList} from "./TodoList.query";
 
 function App() {
   const query = useQuery(['todo-list'], fetchTodoList);

@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {TodoListItem} from "api/TodoListItem";
+import {TodoListItem} from "./TodoList.model";
 
 
 export interface TodoListProps {
