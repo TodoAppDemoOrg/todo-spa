@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'
 import {fetchCommentStatistics, fetchTodos} from './internal_api';
-import {TodoListItem} from "../api/TodoListItem";
+import {TodoListItem} from "api/TodoListItem";
 
 const app = express()
 const port = 8000
