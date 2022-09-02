@@ -15,15 +15,12 @@ export default function TodoDialog() {
     const handleClose = () => {
     };
   
-    const handleListItemClick = (value) => {
-    };
-  
     return (
       <Dialog onClose={handleClose} open={false}>
         <DialogTitle>Set backup account</DialogTitle>
         <List sx={{ pt: 0 }}>
                 
-            <ListItem button onClick={() => handleListItemClick("kek2")} key={"just key"}>
+            <ListItem button key={"just key"}>
                 <ListItemAvatar>
                 <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
                     <PersonIcon />
@@ -32,7 +29,7 @@ export default function TodoDialog() {
                 <ListItemText primary={"kek"} />
             </ListItem>
   
-          <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
+          <ListItem autoFocus button>
             <ListItemAvatar>
               <Avatar>
                 <AddIcon />

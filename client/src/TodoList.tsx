@@ -6,15 +6,21 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {TodoListItem} from "api/TodoListItem";
 
-export default function TodoList(props) {
-  const showTodoDialog = (value) => () => {
-    console.log("open todo");
+
+export interface TodoListProps {
+  todos: TodoListItem[]
+}
+
+export default function TodoList({todos}: TodoListProps) {
+  const showTodoDialog = (todo: TodoListItem) => () => {
+    console.log(`open todo ${todo}`);
   };
 
   return (
     <List>
-      {props.todos.map((todo) => {
+      {todos.map((todo: TodoListItem) => {
         const labelId = `checkbox-list-label-${todo.title}`;
 
         return (

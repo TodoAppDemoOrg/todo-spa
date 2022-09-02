@@ -6,9 +6,10 @@ import TodoList from './TodoList';
 import TodoDialog from './TodoDialog';
 import { CircularProgress } from '@mui/material';
 import TodoAppBar from './TodoAppBar';
+import {TodoListItem} from "api/TodoListItem";
 
 function App() {
-  async function getTodoList() {
+  async function getTodoList(): Promise<TodoListItem[]> {
     let response = await axios("/api/todo-list/");
     return response.data;
   }
@@ -19,7 +20,7 @@ function App() {
     <div>
     <TodoAppBar/>
     <Container>
-      {query.isFetched ? <TodoList todos={query.data}/> : <CircularProgress/>}
+      {query.isFetched && query.data ? <TodoList todos={query.data}/> : <CircularProgress/>}
       <TodoDialog/>
     </Container>
     </div>
