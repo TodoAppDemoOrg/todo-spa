@@ -11,7 +11,7 @@ Example component file structure:
 
 ## Server
 
-Run: `cd server && node dev`
+Run: `cd server && node run dev`
 
 It also serves static client bundle.
 
@@ -20,3 +20,4 @@ It also serves static client bundle.
 - It would be great to avoid axios boilerplate without need to duplicate HTTP URL and method
 - It would be great to write backend code closer to component itself, for example `TodoList.backend.js`
 - Internal API errors are not handled in the current implementation
+- PyCharm Endpoints tool shows all endpoints. "Find usages" shows both client and server side.
