@@ -1,4 +1,4 @@
-# BFF Demo - Express
+# BFF Demo - [TSOA](https://tsoa-community.github.io/docs/)
 
 ## Client
 
@@ -11,12 +11,14 @@ Example component file structure:
 
 ## Server
 
-Run: `cd server && node dev`
+Run: `cd server && node run dev`
 
 It also serves static client bundle.
 
 ## Notes
 
+- TODO deduplicate TodoListItem
 - It would be great to avoid axios boilerplate without need to duplicate HTTP URL and method
 - It would be great to write backend code closer to component itself, for example `TodoList.backend.js`
 - Internal API errors are not handled in the current implementation
+- PyCharm Endpoints are empty, because know nothing about tsoa. It can show generated openapi spec, but Find usages functionality is limited and doesn't show tsoa controllers. 
