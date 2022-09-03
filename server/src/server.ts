@@ -1,5 +1,5 @@
 import express from 'express'
-const fg = require('fast-glob')
+import fg from 'fast-glob'
 
 function discoverRouters(): express.Router[] {
   const files = fg.sync(['**/*.backend.js'])
