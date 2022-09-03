@@ -1,13 +1,16 @@
 import express from 'express'
-import TodoListRouter from '../../src/TodoList.backend'
+const fg = require('fast-glob')
+
+function discoverRouters(): express.Router[] {
+  const files = fg.sync(['**/*.backend.js'])
+  return files.map((entry: string) => require('../../../' + entry.slice(0, -3)).default)
+}
 
 const app = express()
-const port = 8000
-
-app.use(TodoListRouter)
-
+app.use(discoverRouters())
 app.use(express.static('../build'))
 
+const port = 8000
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

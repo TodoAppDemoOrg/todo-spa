@@ -19,7 +19,6 @@ It also serves static client bundle.
 ## Notes
 
 - TODO Hide internal-api nicer: `import {fetchCommentStatistics, fetchTodos} from "../server/src/internal-api"`
-- TODO Auto-collect express routers to avoid manual imports: `import TodoListRouter from '../../src/TodoList.backend'`
 - ☝ It would be great to avoid axios boilerplate without need to duplicate HTTP URL and method
 - ☝ Internal API errors are not handled in the current implementation
 - 👍 PyCharm Endpoints tool shows all endpoints. "Find usages" shows both client and server side.
