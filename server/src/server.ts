@@ -1,13 +1,14 @@
 import express from 'express'
-import fg from 'fast-glob'
+import glob from 'fast-glob'
 
-function discoverRouters(): express.Router[] {
-  const files = fg.sync(['**/*.backend.js'])
-  return files.map((entry: string) => require('../../../' + entry.slice(0, -3)).default)
+function discoverRouters(patterns: string[]): express.Router[] {
+  const files = glob.sync(patterns, {absolute: true})
+  const modules = files.map(filename => require(filename.replace('.js', '')))
+  return modules.map(module => module.default)
 }
 
 const app = express()
-app.use(discoverRouters())
+app.use(discoverRouters(['**/*.backend.js']))
 app.use(express.static('../build'))
 
 const port = 8000
