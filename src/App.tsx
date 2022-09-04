@@ -1,20 +1,19 @@
-import * as React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import Container from '@mui/material/Container';
-import TodoList from './TodoList';
-import TodoDialog from './TodoDialog';
-import { CircularProgress } from '@mui/material';
-import TodoAppBar from './TodoAppBar';
-import {fetchTodoList} from "./TodoList.query";
+import * as React from 'react'
+import Container from '@mui/material/Container'
+import TodoList from './TodoList'
+import TodoDialog from './TodoDialog'
+import { CircularProgress } from '@mui/material'
+import TodoAppBar from './TodoAppBar'
+import {useGetTodoList} from "./generated-openapi-client/api"
 
 function App() {
-  const query = useQuery(['todo-list'], fetchTodoList);
+  const query = useGetTodoList()
 
   return (
     <div>
     <TodoAppBar/>
     <Container>
-      {query.isFetched && query.data ? <TodoList todos={query.data}/> : <CircularProgress/>}
+      {query.isFetched && query.data ? <TodoList todos={query.data.data}/> : <CircularProgress/>}
       <TodoDialog/>
     </Container>
     </div>

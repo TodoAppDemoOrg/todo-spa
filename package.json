@@ -17,6 +17,7 @@
     "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
     "concurrently": "^7.3.0",
+    "orval": "^6.9.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -24,8 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "orval && react-scripts start",
+    "build": "orval && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
