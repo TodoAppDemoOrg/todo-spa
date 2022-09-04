@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'
 import {TodoListItem} from "./TodoList.model"
-import {fetchCommentStatistics, fetchTodos} from "../server/src/internal-api"
+import {fetchCommentStatistics, fetchTodos} from "./internal-api"
 
 export default express.Router()
 
