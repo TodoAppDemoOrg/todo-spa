@@ -8,5 +8,10 @@
   },
   "routes": {
     "routesDir": "build"
+  },
+  "compilerOptions": {
+    "paths": {
+      "client/*": ["../src/*"]
+    }
   }
 }

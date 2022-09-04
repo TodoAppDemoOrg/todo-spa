@@ -1,14 +1,7 @@
 import {Controller, Get, Route} from "tsoa";
 import {fetchCommentStatistics, fetchTodos} from "./internal-api";
+import {TodoListItem} from "client/TodoList.model";
 
-// TODO replace with interface from client
-interface TodoListItem {
-    id: string;
-    title: string;
-    commentCount: number;
-}
-
-// TODO move to client
 @Route("api/todo-list")
 export class TodoListController extends Controller {
     @Get()

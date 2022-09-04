@@ -16,8 +16,7 @@ It also serves static client bundle.
 
 ## Notes
 
-- TODO deduplicate TodoListItem
-- It would be great to write backend code closer to component itself, for example `TodoList.backend.js`
-- Internal API errors are not handled in the current implementation
-- PyCharm Endpoints are empty, because know nothing about tsoa. It can show generated openapi spec, but Find usages functionality is limited and doesn't show tsoa controllers. 
+- ☝ It would be great to write backend code closer to component itself, for example `TodoList.backend.js`
+- ☝ Internal API errors are not handled in the current implementation
+- ⚠ PyCharm Endpoints are empty, because know nothing about tsoa. It can show generated openapi spec, but "Find usages" functionality is limited and doesn't show tsoa controllers. 
 - 👍 React-query code is generated with orval
