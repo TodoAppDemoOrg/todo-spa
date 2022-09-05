@@ -1,6 +1,6 @@
 # Demo SPA using BFF pattern
 
-Different tech stack are kept in different branches:
+Different tech stacks are kept in different branches:
 
 - [express](https://github.com/TodoAppDemoOrg/todo-spa/tree/express)
 - [tsoa](https://github.com/TodoAppDemoOrg/todo-spa/tree/tsoa)
