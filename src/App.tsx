@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@apollo/client';
 import Container from '@mui/material/Container';
 import TodoList from './TodoList';
 import TodoDialog from './TodoDialog';
 import { CircularProgress } from '@mui/material';
 import TodoAppBar from './TodoAppBar';
-import {fetchTodoList} from "./TodoList.query";
+import {GET_TODOS} from "./TodoList.query";
 
 function App() {
-  const query = useQuery(['todo-list'], fetchTodoList);
+  const { loading, error, data } = useQuery(GET_TODOS);
 
   return (
     <div>
     <TodoAppBar/>
     <Container>
-      {query.isFetched && query.data ? <TodoList todos={query.data}/> : <CircularProgress/>}
+      {!loading && data ? <TodoList todos={data.todos}/> : <CircularProgress/>}
       <TodoDialog/>
     </Container>
     </div>

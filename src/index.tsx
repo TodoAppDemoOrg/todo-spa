@@ -1,18 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-const queryClient = new QueryClient();
+const client = new ApolloClient({
+    uri: 'http://localhost:4000/',
+    cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+      <ApolloProvider client={client}>
+          <App />
+      </ApolloProvider>,
   </React.StrictMode>
 );

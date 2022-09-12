@@ -1,7 +1,16 @@
-import axios from "axios";
-import {TodoListItem} from "./TodoList.model";
+import { gql } from '@apollo/client';
 
-export async function fetchTodoList(): Promise<TodoListItem[]> {
-    const response = await axios("/api/todo-list/");
-    return response.data;
-}
+export const GET_TODOS = gql`
+    query TodoList {
+        todos {
+            id
+            title
+            commentCount
+            comments {
+                id
+                author
+                text
+            }
+        }
+    }
+`;
