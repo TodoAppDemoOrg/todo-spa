@@ -1,0 +1,45 @@
+serve:
+  customServerHandler: src/server
+
+sources:
+  - name: Todos
+    handler:
+      openapi:
+        baseUrl: http://localhost:4001/
+        source: http://localhost:4001/openapi.yaml
+  - name: Comments
+    handler:
+      openapi:
+        baseUrl: http://localhost:4002/
+        source: http://localhost:4002/openapi.yaml
+
+transforms:
+#  - filterSchema:
+#      filters:
+#        - Query.!CommentAPI_get_topic_statistics
+  - rename:
+      renames:
+        - from:
+            type: Query
+            field: TodoAPI_get_todo_list
+          to:
+            type: Query
+            field: todos
+        - from:
+            type: Query
+            field: CommentAPI_get_comments
+          to:
+            type: Query
+            field: comments
+
+additionalTypeDefs: |
+  extend type Todo {
+    commentCount: Int
+  }
+
+additionalResolvers:
+  - 'src/resolvers'
+
+additionalEnvelopPlugins: 'src/envelopPlugins'
+
+includeHttpDetailsInExtensions: true

@@ -1,7 +1,20 @@
-import axios from "axios";
 import {TodoListItem} from "./TodoList.model";
+import {gql, request} from "graphql-request";
+
+const endpoint = "http://localhost:4000/"
 
 export async function fetchTodoList(): Promise<TodoListItem[]> {
-    const response = await axios("/api/todo-list/");
-    return response.data;
+    const todoListItems = await request(
+        endpoint,
+        gql`
+            query {
+                todos {
+                    id
+                    title
+                    commentCount
+                }
+            }
+        `
+    );
+    return todoListItems.todos;
 }
