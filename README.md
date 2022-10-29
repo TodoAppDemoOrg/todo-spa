@@ -5,7 +5,8 @@ Different tech stacks are kept in different branches:
 - [express](https://github.com/TodoAppDemoOrg/todo-spa/tree/express)
 - [tsoa](https://github.com/TodoAppDemoOrg/todo-spa/tree/tsoa)
 - [tsoa-orval](https://github.com/TodoAppDemoOrg/todo-spa/tree/tsoa-orval)
-- [graphql](https://github.com/TodoAppDemoOrg/todo-spa/tree/graphql)
+- [appolo federation](https://github.com/TodoAppDemoOrg/todo-spa/tree/appolo-federation-gql)
+- [graphql mesh] (https://github.com/TodoAppDemoOrg/todo-spa/tree/mesh-gql)
 
 ## Available Scripts
 
